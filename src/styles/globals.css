@@ -23,3 +23,36 @@ body {
   color: var(--foreground);
   font-family: SharpSans, sans-serif;
 }
+
+.nav-a {
+  position: relative;
+  transition: all .3s ease;
+}
+
+.nav-a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--foreground);
+  transition: all .3s ease;
+}
+.nav-a::before {
+  content: '';
+  position: absolute;
+  right: 50%;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--foreground);
+  transition: all .3s ease;
+}
+
+.nav-a:hover::after {
+  width: 50%;
+}
+.nav-a:hover::before {
+  width: 50%;
+}
