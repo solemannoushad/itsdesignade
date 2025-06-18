@@ -1,16 +1,34 @@
-import React from 'react'
+import React from "react";
+import WorkCard from "./WorkCard";
 
 function Work() {
   return (
-    <section className='h-screen w-[58%] bg-white text-black relative flex flex-col items-center justify-center gap-5'>
-      <h1 className=' text-8xl font-bold uppercase'>the Work</h1>
-      <h2 className=' text-3xl'>everyone loves</h2>
-      <a className='text-xl font-medium absolute top-[3%] left-[3%]' href="">Instagram</a>
-      <a className='text-xl font-medium absolute top-[3%] right-[3%]' href="">Facebook</a>
-      <a className='text-xl font-medium absolute bottom-[3%] left-[3%]' href="">Youtube</a>
-      <a className='text-xl font-medium absolute bottom-[3%] right-[3%]' href="">Linkedin</a>
+    <section className="flex w-full shrink-0">
+      <section className="h-screen w-[60%] bg-white text-black relative flex flex-col items-center justify-center gap-5">
+        <h1 className=" text-8xl font-bold uppercase">the Work</h1>
+        <h2 className=" text-3xl">everyone loves</h2>
+        <a className="text-xl font-medium absolute top-[3%] left-[3%]" href="">
+          Instagram
+        </a>
+        <a className="text-xl font-medium absolute top-[3%] right-[3%]" href="">
+          Facebook
+        </a>
+        <a
+          className="text-xl font-medium absolute bottom-[3%] left-[3%]"
+          href=""
+        >
+          Youtube
+        </a>
+        <a
+          className="text-xl font-medium absolute bottom-[3%] right-[3%]"
+          href=""
+        >
+          Linkedin
+        </a>
+      </section>
+      <WorkCard />
     </section>
-  )
+  );
 }
 
-export default Work
+export default Work;

@@ -57,3 +57,20 @@ body {
 .nav-a:hover::before {
   width: 50%;
 }
+
+
+.card-category-pill {
+  position: relative;
+}
+
+.card-category-pill::before {
+  content: '';
+  position: absolute;
+  left: -15px;
+  top: 35%;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: var(--foreground);
+  transition: all .3s ease;
+}
