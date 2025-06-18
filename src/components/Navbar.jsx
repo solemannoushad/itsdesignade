@@ -1,16 +1,14 @@
-'use client'
+'use client';
 
-import Image from 'next/image'
-import React, { useEffect, useRef } from 'react'
+import Image from 'next/image';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
-
 function Navbar() {
-
-    const logoRef = useRef(null);
+  const logoWrapperRef = useRef(null);
 
   useEffect(() => {
-    const logo = logoRef.current;
+    const logo = logoWrapperRef.current;
     if (!logo) return;
 
     const handleMouseMove = (e) => {
@@ -21,7 +19,7 @@ function Navbar() {
       gsap.to(logo, {
         x: x * 0.2,
         y: y * 0.2,
-        duration: 0.8,
+        duration: 0.2,
         ease: 'power2.out',
       });
     };
@@ -40,18 +38,22 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className='flex absolute w-screen justify-between itens-center py-10 px-24 bg-transparent z-50'>
-        <ul className='flex gap-10'>
-            <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="/">Services</a></li>
-            <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="/">Portfolio</a></li>
-        </ul>
-        <Image ref={logoRef} src={'/images/logo.svg'} className='cursor-pointer' width={200} height={100} alt='Designade' />
-        <ul className='flex gap-10'>
-            <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="/">Blog</a></li>
-            <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="/">Contact Us</a></li>
-        </ul>
+    <nav className='flex absolute w-screen justify-between items-center py-10 px-24 bg-transparent z-50'>
+      <ul className='flex gap-10'>
+        <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="/">Services</a></li>
+        <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="/">Portfolio</a></li>
+      </ul>
+
+      <div ref={logoWrapperRef} className="cursor-pointer flex items-center justify-center">
+        <Image src="/images/logo.svg" alt="Designade" width={200} height={100} />
+      </div>
+
+      <ul className='flex gap-10'>
+        <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="/">Blog</a></li>
+        <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="/">Contact Us</a></li>
+      </ul>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
