@@ -12,16 +12,22 @@
   --font-mono: var(--font-geist-mono);
 }
 
+
 @font-face {
-  font-family: 'SharpSans';
-  src: url('/font/Sharp Sans Medium.ttf') format('truetype');
+  font-family: 'Hero';
+  src: url('/font/Hero-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Kiona';
+  src: url('/font/Kiona-Regular.ttf') format('truetype');
 }
 
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: SharpSans, sans-serif;
+  font-family: Hero, sans-serif;
   /* overflow-x: hidden; */
 }
 

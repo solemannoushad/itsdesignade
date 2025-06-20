@@ -5,7 +5,7 @@ import React from 'react'
 const CardTags = ({title}) => {
 
     return(
-        <div className='px-6 text-lg py-2 rounded-full capitalize border-1 border-white'>{title}</div>
+        <div className='px-6 text-lg py-2 rounded-full capitalize border-2 border-white'>{title}</div>
     )
 }
 
