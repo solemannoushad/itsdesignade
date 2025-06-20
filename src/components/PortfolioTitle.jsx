@@ -19,7 +19,7 @@ const PortfolioPills = () => {
 
 function PortfolioTitle() {
   return (
-    <section className="w-screen h-screen flex flex-col items-center justify-center bg-white text-black">
+    <section className="w-screen h-screen flex flex-col shrink-0 items-center justify-center bg-white text-black">
       <div className="portfolio-title-wrapper relative">
         <h2 className="text-[12vw] tracking-tighter font-extrabold uppercase text-shadow-lg text-shadow-black">
           Portfolio

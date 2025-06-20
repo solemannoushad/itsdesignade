@@ -16,25 +16,31 @@ const CardCategory = ({title}) => {
     )
 }
 
-function WorkCard() {
+function WorkCard({img, tags, tools, title}) {
   return (
-    <div className='flex flex-col w-[70%] h-screen'>
+    <div className='flex flex-col w-[1000px] h-screen flex-shrink-0 '>
       <div className="work-card-wrapper border-l-1 border-l-slate-200 w-full h-full flex flex-col">
         <div className="work-card-img w-full h-[70%]">
-            <Image src={'/images/video-editing.png'} className='w-full h-full object-cover object-top' width={1400} height={1400} alt='Nood Mood' />
+            <Image src={`/images/${img}`} className='w-full h-full object-cover object-top' width={1400} height={1400} alt='Nood Mood' />
         </div>
         <div className="work-card-tags flex w-full p-5 itens-center justify-between">
             <div className="card-tags flex items-center gap-5">
-                <CardTags title={"Short Reels"} />
-                <CardTags title={"Animation"} />
+                {
+                    tags.map((tag, index) => {
+                        return <CardTags key={index} title={tag} />
+                    })
+                }
             </div>
             <div className="card-category flex items-center gap-7">
-                <CardCategory title={"Premier Pro"} />
-                <CardCategory title={"After Effects"} />
+                {
+                    tools.map((tool, index) => {
+                        return <CardCategory key={index} title={tool} />
+                    })
+                }
             </div>
         </div>
         <div className="work-card-title flex items-center justify-center py-10">
-            <p className='text-6xl font-bold'>Video Editing</p>
+            <p className='text-6xl font-bold'>{title}</p>
         </div>
       </div>
     </div>
