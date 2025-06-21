@@ -21,7 +21,7 @@ function PortfolioTitle() {
   return (
     <section className="w-screen h-screen flex flex-col shrink-0 items-center justify-center bg-white text-black">
       <div className="portfolio-title-wrapper relative">
-        <h2 className="text-[12vw] tracking-tighter font-extrabold uppercase text-shadow-lg text-shadow-black">
+        <h2 className="text-[12vw] font-kiona tracking-tighter font-extrabold uppercase text-shadow-lg text-shadow-black">
           Portfolio
         </h2>
         <PortfolioPills />

@@ -24,6 +24,15 @@
 }
 
 
+.font-hero {
+  font-family: 'Hero', sans-serif;
+}
+
+.font-kiona {
+  font-family: 'Kiona', sans-serif;
+}
+
+
 body {
   background: var(--background);
   color: var(--foreground);

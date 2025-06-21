@@ -5,9 +5,9 @@ import { servicesData } from "@/content/services";
 
 function Work() {
   return (
-    <section className="flex w-full ">
+    <section className="flex w-full">
       <section className="h-screen w-[60%] shrink-0 bg-white text-black relative flex flex-col items-center justify-center gap-5">
-        <h1 className=" text-8xl font-bold uppercase">the Work</h1>
+        <h1 className=" text-8xl font-bold uppercase font-kiona">the Work</h1>
         <h2 className=" text-3xl">everyone loves</h2>
         <a className="text-xl font-medium absolute top-[3%] left-[3%]" href="">
           Instagram

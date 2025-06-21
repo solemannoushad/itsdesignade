@@ -40,7 +40,7 @@ function WorkCard({img, tags, tools, title}) {
             </div>
         </div>
         <div className="work-card-title flex items-center justify-center py-10">
-            <p className='text-6xl font-bold'>{title}</p>
+            <p className='text-6xl font-bold font-kiona'>{title}</p>
         </div>
       </div>
     </div>
