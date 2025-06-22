@@ -22,5 +22,17 @@ export const servicesData = [
         image: "web-development.png",
         tags: ["Web Design", "Custom Websites"],
         tools: ['WordPress', 'React', 'Next.js'],
+    },
+    {
+        title: "Social Media Management",
+        image: "social-media.jpg",
+        tags: ["Account Management", "Content Creation"],
+        tools: ['Facebook', 'Instagram', 'TikTok'],
+    },
+    {
+        title: "Graphic Designing",
+        image: "social-media.jpg",
+        tags: ["Posts" , "Logo", "Thumbnail" , "UI/UX"],
+        tools: ['Facebook', 'Instagram', 'TikTok'],
     }
 ]

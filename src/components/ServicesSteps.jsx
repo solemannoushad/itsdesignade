@@ -1,12 +1,12 @@
 import React from "react";
 
 const services = [
-  "Branding",
+  "Ecommerce",
   "Social Media",
-  "UI/UX Design",
-  "Photography",
-  "Videography",
-  "CGI Video",
+  "Video Editing",
+  "Web Development",
+  "Digital Marketing",
+  "Graphic Designing",
 ];
 
 function ServiceSteps() {

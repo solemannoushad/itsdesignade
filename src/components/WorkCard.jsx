@@ -24,7 +24,7 @@ function WorkCard({img, tags, tools, title}) {
             <Image src={`/images/${img}`} className='w-full h-full object-cover object-top' width={1400} height={1400} alt='Nood Mood' />
         </div>
         <div className="work-card-tags flex w-full p-5 itens-center justify-between">
-            <div className="card-tags flex items-center gap-5">
+            <div className="card-tags flex items-center gap-4">
                 {
                     tags.map((tag, index) => {
                         return <CardTags key={index} title={tag} />
