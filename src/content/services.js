@@ -19,7 +19,7 @@ export const servicesData = [
         image: "graphic-designing.jpg",
         tags: ["Posts" , "Logo", "Thumbnail" , "UI/UX"],
         tools: ['Photoshop', 'Canva', 'Figma'],
-        objectFit: "top"
+        objectFit: "center"
     },
     {
         title: "Social Media Management",

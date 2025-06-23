@@ -45,7 +45,7 @@ function Navbar() {
       </ul>
 
       <div ref={logoWrapperRef} className="cursor-pointer flex items-center justify-center">
-        <Image src="/images/logo.svg" alt="Designade" width={200} height={100} />
+        <Image src="/images/logo.png" className='w-[60%]' alt="Designade" width={200} height={100} />
       </div>
 
       <ul className='flex gap-10'>

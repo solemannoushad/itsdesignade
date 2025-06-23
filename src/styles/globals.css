@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
+  --background: #030303;
   --foreground: #ffffff;
 }
 
@@ -52,7 +52,7 @@ body {
   bottom: -2px;
   width: 0%;
   height: 2px;
-  background-color: var(--foreground);
+  background-color: #ffc419;
   transition: all .3s ease;
 }
 .nav-a::before {
@@ -62,8 +62,13 @@ body {
   bottom: -2px;
   width: 0%;
   height: 2px;
-  background-color: var(--foreground);
+  background-color: #ffc419;
   transition: all .3s ease;
+}
+
+.nav-a:hover {
+  color: white;
+  text-shadow: 0 0 8px #ffffff, 0 0 16px #ffffff, 0 0 24px #ffffff;
 }
 
 .nav-a:hover::after {
