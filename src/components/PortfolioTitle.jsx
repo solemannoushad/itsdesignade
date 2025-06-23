@@ -5,10 +5,10 @@ const PortfolioPills = () => {
   return (
     <>
       <div className="bg-white text-black border-1 border-black px-10 py-3 absolute top-[50%] left-[20%] rotate-20 inline text-2xl rounded-full">
-        Photography
+        Marketing
       </div>
       <div className="bg-white text-black border-1 border-black px-10 py-3 absolute top-[5%] left-[40%] -rotate-15 inline text-2xl rounded-full">
-        Branding
+        Web Design
       </div>
       <div className="bg-white text-black border-1 border-black px-10 py-3 absolute top-[65%] left-[60%] -rotate-15 inline text-2xl rounded-full">
         Social Media

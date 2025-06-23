@@ -30,7 +30,7 @@ function Work() {
       </section>
       {
         servicesData.map((service) => {
-        return <WorkCard key={service.title} img={service.image} tags={service.tags} tools={service.tools} title={service.title}  />
+        return <WorkCard key={service.title} img={service.image} tags={service.tags} tools={service.tools} title={service.title} objectPosition={service.objectFit}  />
         })
       }
     <PortfolioTitle />

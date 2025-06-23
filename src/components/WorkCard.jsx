@@ -16,12 +16,12 @@ const CardCategory = ({title}) => {
     )
 }
 
-function WorkCard({img, tags, tools, title}) {
+function WorkCard({img, tags, tools, title, objectPosition}) {
   return (
     <div className='flex flex-col w-[1000px] h-screen flex-shrink-0 '>
       <div className="work-card-wrapper border-l-1 border-l-slate-200 w-full h-full flex flex-col">
         <div className="work-card-img w-full h-[70%]">
-            <Image src={`/images/${img}`} className='w-full h-full object-cover object-top' width={1400} height={1400} alt='Nood Mood' />
+            <Image src={`/images/${img}`} className={`w-full h-full object-cover object-${objectPosition}`} width={1400} height={1400} alt={title} />
         </div>
         <div className="work-card-tags flex w-full p-5 itens-center justify-between">
             <div className="card-tags flex items-center gap-4">
@@ -40,7 +40,7 @@ function WorkCard({img, tags, tools, title}) {
             </div>
         </div>
         <div className="work-card-title flex items-center justify-center py-10">
-            <p className='text-6xl font-bold font-kiona'>{title}</p>
+            <p className={`text-6xl font-medium font-hero`}>{title}</p>
         </div>
       </div>
     </div>
