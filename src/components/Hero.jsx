@@ -36,14 +36,14 @@ function Hero() {
       x,
       y,
       scale: 0.4,
-      opacity: 0.5,
+      opacity: 0,
       ease: 'power2.inOut',
     })
   }, [])
 
   return (
-    <section className='h-screen overflow-hidden'>
-        <div className='relative flex flex-col justify-center items-center h-full z-30'>
+    <section className='h-screen'>
+        <div className='relative flex flex-col justify-center items-center h-full'>
             <video autoPlay loop muted className='w-[90%] mx-auto h-full object-contain'>
                 <source src="/videos/chips (1).mp4" type="video/mp4" />
             </video>
