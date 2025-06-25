@@ -44,9 +44,9 @@ function Hero() {
     <section className='h-screen'>
         <div className='relative flex flex-col justify-center items-center h-full'>
             <video autoPlay loop muted className='w-[90%] mx-auto h-full object-contain'>
-                <source src="/videos/chips (1).mp4" type="video/mp4" />
+                <source src="/videos/bg-element.mp4" type="video/mp4" />
             </video>
-            <Image ref={heroImgRef} src={'/images/2.svg'}  width={1000} height={100} alt='designade' className='absolute -bottom-10 w-[75%] z-30' style={{mixBlendMode: 'difference'}} />
+            <Image ref={heroImgRef} src={'/images/plain-logo-white.svg'}  width={1000} height={100} alt='designade' className='absolute bottom-15 w-[70%] z-30' style={{mixBlendMode: 'difference'}} />
         </div>
     </section>
   )

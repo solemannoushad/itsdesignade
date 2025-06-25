@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
 
-
 const CardTags = ({title}) => {
 
     return(
@@ -21,7 +20,7 @@ function WorkCard({img, tags, tools, title, objectPosition}) {
     <div className='flex flex-col w-full md:w-[1000px] min-h-[60vh] md:h-screen flex-shrink-0'>
       <div className="work-card-wrapper border-l-1 border-l-slate-200 w-full h-full flex flex-col">
         <div className="work-card-img w-full h-[40vw] md:h-[70%] min-h-[200px] md:min-h-0">
-            <Image src={`/images/${img}`} className={`w-full h-full object-cover object-${objectPosition}`} width={1400} height={1400} alt={title} />
+            <Image src={`/images/${img}`} className={`w-full h-full object-cover ${objectPosition === "top" ? "object-top" : "object-center"}`} width={1400} height={1400} alt={title} />
         </div>
         <div className="work-card-tags flex w-full p-5 items-center justify-between flex-wrap gap-2 md:gap-0">
             <div className="card-tags flex items-center gap-2 md:gap-4 flex-wrap">

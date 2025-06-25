@@ -1,14 +1,14 @@
 export const servicesData = [
     {
         title: "Video Editing",
-        image: "video-editing.png",
+        image: "video-editing.jpg",
         tags: ["SEO", "Meta Ads", "Google Ads"],
         tools: ['Premiere Pro', 'After Effects'],
         objectFit: "top"
     },
     {
         title: "Digital Marketing",
-        image: "digital-marketing.png",
+        image: "digital-marketing.jpg",
         tags: ["Short Reels", "Animation"],
         tools: ['ecommerce', 'shopify', 'branding'],
         objectFit: "top"
@@ -23,21 +23,21 @@ export const servicesData = [
     },
     {
         title: "Social Media Management",
-        image: "SOCIAL_MEDIA_FINAL.jpg",
+        image: "social-media.jpg",
         tags: ["Account Management", "Content Creation"],
         tools: ['Facebook', 'Instagram', 'TikTok'],
         objectFit: "center"
     },
     {
         title: "Web Development",
-        image: "web-development.png",
+        image: "web-development.jpg",
         tags: ["Web Design", "Custom Websites"],
         tools: ['WordPress', 'React', 'Next.js'],
         objectFit: "top"
     },
     {
         title: "E-commerce",
-        image: "ecommerce1.png",
+        image: "ecommerce.jpg",
         tags: ["Shopify", "WooCommerce"],
         tools: ['Shopify', 'WooCommerce'],
         objectFit: "top"
