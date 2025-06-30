@@ -35,8 +35,17 @@ function Hero() {
       x,
       y,
       scale: 0.4,
+    })
+
+    gsap.to(img, {
+      scrollTrigger: {
+        trigger: img,
+        start: 'top 20%',
+        end: 'bottom top',
+        scrub: 1.25,
+        markers: true
+      },
       opacity: 0,
-      ease: 'power2.inOut',
     })
   }, [])
 
