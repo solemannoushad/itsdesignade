@@ -43,7 +43,6 @@ function Hero() {
         start: 'top 20%',
         end: 'bottom top',
         scrub: 1.25,
-        markers: true
       },
       opacity: 0,
     })
