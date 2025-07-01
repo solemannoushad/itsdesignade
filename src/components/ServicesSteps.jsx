@@ -87,7 +87,7 @@ function ServiceSteps() {
   }, []);
 
   return (
-    <section className="w-full h-screen bg-white text-black pl-36 py-10 overflow-x-hidden">
+    <section className="w-full h-screen bg-white text-black pl-36 py-10 overflow-hidden">
       {servicesSteps.map((service, index) => {
         const { title, img } = service;
         return (
@@ -99,7 +99,7 @@ function ServiceSteps() {
           >
             <div
               ref={el => imageRefs.current[index] = el}
-              className="hover-img-wrapper w-[200px] h-[240px] overflow-hidden rounded-xl absolute scale-0"
+              className="hover-img-wrapper w-[200px] h-[240px] overflow-hidden rounded-xl absolute scale-0 z-40"
             >
               <Image src={`/images/steps/${img}`} width={300} height={300} alt={service} />
             </div>

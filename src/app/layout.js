@@ -16,9 +16,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        {/* <SmoothScrollProvider> */}
+        <SmoothScrollProvider>
           {children}
-        {/* </SmoothScrollProvider> */}
+        </SmoothScrollProvider>
       </body>
     </html>
   );
