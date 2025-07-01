@@ -14,36 +14,72 @@ function ServiceSteps() {
     const wrappers = blockRefs.current;
     const images = imageRefs.current;
 
-    const handleMouseEnter = (idx) => {
+    const handleMouseEnter = (e, idx) => {
+      const wrapperRect = e.currentTarget.getBoundingClientRect();
+      const mouseX = e.clientX - wrapperRect.left;
+      const mouseY = e.clientY - wrapperRect.top;
+      gsap.fromTo(
+        images[idx],
+        {
+          scale: 0,
+          rotate: 0,
+          x: wrapperRect.width, // start from right edge (right-0)
+          y: mouseY,
+        },
+        {
+          scale: 1,
+          duration: 0.2,
+          rotate: -10,
+          x: mouseX + 200,
+          y: mouseY,
+        }
+      );
+    };
+
+    const handleMouseMove = (e, idx) => {
+      const wrapperRect = e.currentTarget.getBoundingClientRect();
+      const mouseX = e.clientX - wrapperRect.left;
+      const mouseY = e.clientY - wrapperRect.top;
+      // Rotate based on horizontal movement, e.g. -20deg to 20deg
+      const rotate = ((mouseX / wrapperRect.width) - 0.5) * 40;
       gsap.to(images[idx], {
-        scale: 1,
+        x: mouseX + 200,
+        y: mouseY,
+        rotate: rotate,
         duration: 0.2,
+        overwrite: 'auto',
       });
     };
 
-    const handleMouseLeave = (idx) => {
+    const handleMouseLeave = (e, idx) => {
+      const wrapperRect = e.currentTarget.getBoundingClientRect();
       gsap.to(images[idx], {
         scale: 0,
+        // x: wrapperRect.width -100, // animate x to right-0
         duration: 0.2
       });
     };
 
     wrappers.forEach((wrapper, idx) => {
       if (wrapper) {
-        const enter = () => handleMouseEnter(idx);
-        const leave = () => handleMouseLeave(idx);
+        const enter = (e) => handleMouseEnter(e, idx);
+        const move = (e) => handleMouseMove(e, idx);
+        const leave = (e) => handleMouseLeave(e, idx);
         wrapper.addEventListener("mouseenter", enter);
+        wrapper.addEventListener("mousemove", move);
         wrapper.addEventListener("mouseleave", leave);
         // Store listeners for cleanup
         wrapper._enter = enter;
+        wrapper._move = move;
         wrapper._leave = leave;
       }
     });
 
     return () => {
       wrappers.forEach((wrapper) => {
-        if (wrapper && wrapper._enter && wrapper._leave) {
+        if (wrapper && wrapper._enter && wrapper._move && wrapper._leave) {
           wrapper.removeEventListener("mouseenter", wrapper._enter);
+          wrapper.removeEventListener("mousemove", wrapper._move);
           wrapper.removeEventListener("mouseleave", wrapper._leave);
         }
       });
@@ -51,7 +87,7 @@ function ServiceSteps() {
   }, []);
 
   return (
-    <section className="w-full h-screen bg-white text-black pl-36 py-10">
+    <section className="w-full h-screen bg-white text-black pl-36 py-10 overflow-x-hidden">
       {servicesSteps.map((service, index) => {
         const { title, img } = service;
         return (
@@ -63,7 +99,7 @@ function ServiceSteps() {
           >
             <div
               ref={el => imageRefs.current[index] = el}
-              className="hover-img-wrapper w-[160px] h-[200px] overflow-hidden rounded-xl absolute right-0 scale-0"
+              className="hover-img-wrapper w-[160px] h-[200px] overflow-hidden rounded-xl absolute scale-0"
             >
               <Image src={`/images/steps/${img}`} width={300} height={300} alt={service} />
             </div>
