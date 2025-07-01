@@ -41,7 +41,7 @@ function ServiceSteps() {
       const mouseX = e.clientX - wrapperRect.left;
       const mouseY = e.clientY - wrapperRect.top;
       // Rotate based on horizontal movement, e.g. -20deg to 20deg
-      const rotate = ((mouseX / wrapperRect.width) - 0.5) * 40;
+      const rotate = -20 + ((mouseX / wrapperRect.width) * 25);
       gsap.to(images[idx], {
         x: mouseX + 200,
         y: mouseY,
@@ -99,7 +99,7 @@ function ServiceSteps() {
           >
             <div
               ref={el => imageRefs.current[index] = el}
-              className="hover-img-wrapper w-[160px] h-[200px] overflow-hidden rounded-xl absolute scale-0"
+              className="hover-img-wrapper w-[200px] h-[240px] overflow-hidden rounded-xl absolute scale-0"
             >
               <Image src={`/images/steps/${img}`} width={300} height={300} alt={service} />
             </div>
