@@ -1,11 +1,59 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import BtnPrimary from "./BtnPrimary";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function PortfolioTitle() {
   const sectionRef = useRef(null);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const section = sectionRef.current;
+
+    // Mousemove effect for pills
+    const handleMouseMove = (e) => {
+      const rect = section.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const xPercent = (x / rect.width - 0.5) * 2; // -1 to 1
+      const yPercent = (y / rect.height - 0.5) * 2; // -1 to 1
+      const pills = section.querySelectorAll('.portfolio-title-pills');
+      pills.forEach((pill, i) => {
+        // Each pill can have a different multiplier for a parallax effect
+        const xMove = xPercent * (10 + i * 5); // px
+        const yMove = yPercent * (10 + i * 5); // px
+        gsap.to(pill, {
+          x: xMove,
+          y: yMove,
+          duration: 0.4,
+          overwrite: 'auto',
+        });
+      });
+    };
+    section.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      section.removeEventListener('mousemove', handleMouseMove);
+    };
+
+    // Fix: Use horizontal scrollTrigger for horizontal reveal/pin
+    // gsap.to(section, {
+    //   scrollTrigger: {
+    //     trigger: section,
+    //     horizontal: true,
+    //     pin: true,
+    //     scrub: 1,
+    //     start: "left center",
+    //     end: "+=300",
+    //     markers: true,
+    //     anticipatePin: 1,
+    //     invalidateOnRefresh: true,
+    //     pin: true,
+    //     pinSpacing: false,
+    //   }
+    // });
+
+  }, []);
 
   return (
     <section
