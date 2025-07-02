@@ -101,7 +101,7 @@ function ServiceSteps() {
               ref={el => imageRefs.current[index] = el}
               className="hover-img-wrapper w-[200px] h-[240px] overflow-hidden rounded-xl absolute scale-0 z-40"
             >
-              <Image src={`/images/steps/${img}`} width={300} height={300} alt={service} />
+              <Image src={`/images/steps/${img}`} className="object-contain" width={1000} height={1000} alt={service} />
             </div>
             <div className="service-title-count bg-white text-black border-1 border-black w-10 h-10 flex items-center justify-center rounded-full text-xl group-hover:bg-black group-hover:text-white duration-300">
               {index + 1}

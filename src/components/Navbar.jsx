@@ -3,11 +3,14 @@
 import Image from 'next/image';
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 function Navbar() {
   const logoWrapperRef = useRef(null);
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
     const logo = logoWrapperRef.current;
     if (!logo) return;
 
@@ -40,8 +43,20 @@ function Navbar() {
   return (
     <nav className='flex absolute w-screen justify-between items-center py-10 px-24 bg-transparent z-50'>
       <ul className='flex gap-10'>
-        <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="/">Services</a></li>
-        <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="/">Portfolio</a></li>
+        <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="#services" onClick={e => {
+          e.preventDefault();
+          gsap.to(window, {
+            scrollTo: { y: '#services', offsetY: 0 },
+            duration: 1,
+            ease: 'power2.out',
+            onComplete: () => {
+              if (typeof window !== 'undefined' && ScrollTrigger) {
+                // ScrollTrigger.refresh();
+              }
+            }
+          });
+        }}>Services</a></li>
+        <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="/" >Portfolio</a></li>
       </ul>
 
       <div ref={logoWrapperRef} className="cursor-pointer flex items-center justify-center">

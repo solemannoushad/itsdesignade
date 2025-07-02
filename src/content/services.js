@@ -37,7 +37,7 @@ export const servicesData = [
   },
   {
     title: "E-commerce",
-    image: "ecommerce.jpg",
+    image: "ecommerce-png.png",
     tags: ["Shopify", "WooCommerce"],
     tools: ["Shopify", "WooCommerce"],
     objectFit: "top",

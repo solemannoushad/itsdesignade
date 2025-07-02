@@ -26,7 +26,10 @@ function WorkCard({img, tags, tools, title, objectPosition}) {
 
         const handleMouseEnter = (e) => {
             // Get mouse position relative to the wrapper
+            // getBoundingClientRect() returns an object with the size of the element and its position relative to the viewport.
+            // For example: {top, left, bottom, right, width, height, x, y}
             const wrapperRect = e.currentTarget.getBoundingClientRect();
+            console.log("Bounding: " , wrapperRect)
             const mouseX = e.clientX - wrapperRect.left;
             const mouseY = e.clientY - wrapperRect.top;
 
@@ -34,16 +37,9 @@ function WorkCard({img, tags, tools, title, objectPosition}) {
             gsap.set(customCursor, {
                 x: mouseX,
                 y: mouseY,
-                opacity: 0
+                opacity: 1
             });
 
-            // Animate opacity in
-            gsap.to(customCursor, {
-                opacity: 1,
-                duration: 1
-            });
-
-            console.log("Mouse Enter at", mouseX, mouseY);
         }
 
         const handleMouseMove = (e) => {
@@ -53,15 +49,20 @@ function WorkCard({img, tags, tools, title, objectPosition}) {
             gsap.to(customCursor, {
                 x: mouseX,
                 y: mouseY,
-                duration: 0.2,
+                duration: 0.1,
                 overwrite: 'auto',
             });
         }
 
-        const handleMouseLeave = () => {
+        const handleMouseLeave = (e) => {
+            const wrapperRect = e.currentTarget.getBoundingClientRect();
+            const centerX = wrapperRect.width / 2;
+            const centerY = wrapperRect.height / 2;
             gsap.to(customCursor, {
+                x: centerX,
+                y: centerY,
                 opacity: 0,
-                duration: 0.5
+                duration: 0.2
             });
         }
 
@@ -83,9 +84,9 @@ function WorkCard({img, tags, tools, title, objectPosition}) {
 
   return (
     <div className='flex flex-col w-full md:w-[1000px] min-h-[60vh] md:h-screen flex-shrink-0'>
-      <div ref={wrapperRef} className="work-card-wrapper overflow-hidden border-l-1 border-l-slate-200 w-full h-full flex flex-col relative">
-        <div ref={cursorRef} className="cursor-btn opacity-0 absolute flex items-center justify-center bg-[#131313] text-white px-8 py-3 rounded-full text-2xl uppercase font-kiona font-bold">
-            Checkout
+      <div ref={wrapperRef} className="work-card-wrapper overflow-hidden border-l-1 border-l-slate-200 w-full h-full flex flex-col relative cursor-none">
+        <div ref={cursorRef} className="cursor-btn opacity-0 absolute flex items-center justify-center bg-[#131313] text-white px-8 py-3 rounded-full text-2xl uppercase font-kiona font-bold z-40">
+            {title}
         </div>
         <div className="work-card-img w-full h-[40vw] md:h-[70%] min-h-[200px] md:min-h-0">
             <Image src={`/images/${img}`} className={`w-full h-full object-cover ${objectPosition === "top" ? "object-top" : "object-center"}`} width={1400} height={1400} alt={title} />

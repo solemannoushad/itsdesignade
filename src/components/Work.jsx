@@ -60,7 +60,7 @@ function Work() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full h-screen overflow-x-hidden relative">
+    <section id="services" ref={sectionRef} className="w-full h-screen overflow-x-hidden relative">
       <div
         ref={horizontalRef}
         className="flex h-screen items-center"
@@ -69,13 +69,14 @@ function Work() {
         }}
       >
         <section
+        
           className="h-screen w-[60vw] shrink-0 bg-white text-black z-10 relative flex flex-col items-center justify-center gap-5"
         >
           <div ref={workContentRef} className="work-content flex flex-col items-center justify-center gap-5">
             <h1 id="services-title" className=" text-8xl font-bold uppercase font-kiona text-center">the services</h1>
             <h2 className=" text-3xl text-center">everyone needs</h2>
           </div>
-          <a className="text-xl font-medium absolute top-[3%] left-[3%]" href="">
+          <a className="text-xl font-medium absolute top-[3%] left-[3%]" href="https://www.instagram.com/thinkloomsolutions/" target="_blank">
             Instagram
           </a>
           <a className="text-xl font-medium absolute top-[3%] right-[3%]" href="">
@@ -106,9 +107,7 @@ function Work() {
             />
           ))}
         </div>
-        <div className="flex items-center h-screen">
           <PortfolioTitle />
-        </div>
       </div>
     </section>
   );
