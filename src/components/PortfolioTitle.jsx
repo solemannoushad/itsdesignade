@@ -18,22 +18,22 @@ function PortfolioTitle() {
       const y = e.clientY - rect.top;
       const xPercent = (x / rect.width - 0.5) * 2; // -1 to 1
       const yPercent = (y / rect.height - 0.5) * 2; // -1 to 1
-      const pills = section.querySelectorAll('.portfolio-title-pills');
+      const pills = section.querySelectorAll(".portfolio-title-pills");
       pills.forEach((pill, i) => {
-        // Each pill can have a different multiplier for a parallax effect
-        const xMove = xPercent * (10 + i * 5); // px
-        const yMove = yPercent * (10 + i * 5); // px
+        // Increase the movement multipliers for a more dramatic parallax effect
+        const xMove = xPercent * (30 + i * 15); // px
+        const yMove = yPercent * (30 + i * 15); // px
         gsap.to(pill, {
           x: xMove,
           y: yMove,
           duration: 0.4,
-          overwrite: 'auto',
+          overwrite: "auto",
         });
       });
     };
-    section.addEventListener('mousemove', handleMouseMove);
+    section.addEventListener("mousemove", handleMouseMove);
     return () => {
-      section.removeEventListener('mousemove', handleMouseMove);
+      section.removeEventListener("mousemove", handleMouseMove);
     };
 
     // Fix: Use horizontal scrollTrigger for horizontal reveal/pin
@@ -52,14 +52,13 @@ function PortfolioTitle() {
     //     pinSpacing: false,
     //   }
     // });
-
   }, []);
 
   return (
     <section
-    id="portfolio"
+      id="portfolio"
       ref={sectionRef}
-      className="portfolio-section-wrapper w-screen h-screen flex flex-col shrink-0 items-center justify-center bg-white text-black cursor-default"
+      className="portfolio-section-wrapper w-screen h-screen flex flex-col shrink-0 items-center justify-center bg-white text-black cursor-default border-none"
     >
       <div className="portfolio-title-wrapper relative">
         <h2 className="text-[12vw] font-kiona tracking-tighter font-extrabold uppercase text-shadow-lg text-shadow-black">

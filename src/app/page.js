@@ -1,3 +1,4 @@
+import ContactForm from "@/components/ContactForm";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import ServiceSteps from "@/components/ServicesSteps";
@@ -12,6 +13,7 @@ export default function Home() {
     </header>
     <Work />
     <ServiceSteps />
+    <ContactForm />
     </>
   );
 }

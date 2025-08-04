@@ -60,7 +60,7 @@ function Work() {
   }, []);
 
   return (
-    <section id="services" ref={sectionRef} className="w-full h-screen overflow-x-hidden relative">
+    <section id="services" ref={sectionRef} className="w-full h-screen overflow-x-hidden relative border-none bg-background">
       <div
         ref={horizontalRef}
         className="flex h-screen items-center"

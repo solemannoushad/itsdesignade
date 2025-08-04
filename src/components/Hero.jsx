@@ -49,7 +49,7 @@ function Hero() {
   }, [])
 
   return (
-    <section className='h-screen'>
+    <section className='h-screen bg-background'>
         <div className='relative flex flex-col justify-center items-center h-full'>
             <video autoPlay loop muted className='w-[90%] mx-auto h-full object-contain'>
                 <source src="/videos/bg-element.mp4" type="video/mp4" />
