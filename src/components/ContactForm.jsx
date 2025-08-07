@@ -55,12 +55,12 @@ function ContactForm() {
           {/* <label htmlFor="">You need to do</label>
           <input type="radio" name="service" id="service" value={"Social Media"} /> */}
 
-          <input className='border-0 border-b-1 border-b-white text-4xl my-3 py-5 px-3 focus:border-b-primary focus:outline-none bg-black autofill:bg-black inputField' type="text" id='name' name='name' placeholder='Name' />
-          <input className='border-0 border-b-1 border-b-white text-4xl my-3 py-5 px-3 focus:border-b-primary focus:outline-none bg-black autofill:bg-black inputField' type="email" id='Email' name='Email' placeholder='Email' />
-          <input className='border-0 border-b-1 border-b-white text-4xl my-3 py-5 px-3 focus:border-b-primary focus:outline-none bg-black autofill:bg-black inputField' type="text" id='companyName' name='companyName' placeholder='Company Name' />
-          <input className='border-0 border-b-1 border-b-white text-4xl my-3 py-5 px-3 focus:border-b-primary focus:outline-none bg-black autofill:bg-black inputField' type="text" id='designation' name='designation' placeholder='Designation' />
-          <input className='border-0 border-b-1 border-b-white text-4xl my-3 py-5 px-3 focus:border-b-primary focus:outline-none bg-black autofill:bg-black inputField' type="tel" id='phone' name='phone' placeholder='Phone Number' />
-          <textarea className='border-0 border-b-1 border-b-white text-4xl my-3 py-5 px-3 focus:outline-none focus:border-b-primary bg-black autofill:bg-black inputField' name="description" id="description" placeholder='Description'></textarea>
+          <input className='border-0 border-b-1 border-b-white text-4xl my-3 py-5 px-3 focus:border-b-primary focus:outline-none inputField' type="text" id='name' name='name' placeholder='Name' />
+          <input className='border-0 border-b-1 border-b-white text-4xl my-3 py-5 px-3 focus:border-b-primary focus:outline-none inputField' type="email" id='Email' name='Email' placeholder='Email' />
+          <input className='border-0 border-b-1 border-b-white text-4xl my-3 py-5 px-3 focus:border-b-primary focus:outline-none inputField' type="text" id='companyName' name='companyName' placeholder='Company Name' />
+          <input className='border-0 border-b-1 border-b-white text-4xl my-3 py-5 px-3 focus:border-b-primary focus:outline-none inputField' type="text" id='designation' name='designation' placeholder='Designation' />
+          <input className='border-0 border-b-1 border-b-white text-4xl my-3 py-5 px-3 focus:border-b-primary focus:outline-none inputField' type="tel" id='phone' name='phone' placeholder='Phone Number' />
+          <textarea className='border-0 border-b-1 border-b-white text-4xl my-3 py-5 px-3 focus:outline-none focus:border-b-primary inputField' name="description" id="description" placeholder='Description'></textarea>
 
         </form>
       </div>
