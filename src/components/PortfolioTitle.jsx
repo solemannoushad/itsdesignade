@@ -58,7 +58,7 @@ function PortfolioTitle() {
     <section
       id="portfolio"
       ref={sectionRef}
-      className="portfolio-section-wrapper w-screen h-screen flex flex-col shrink-0 items-center justify-center bg-white text-black cursor-default border-none"
+      className="portfolio-section-wrapper w-screen h-screen flex flex-col shrink-0 items-center justify-center bg-white text-black cursor-default"
     >
       <div className="portfolio-title-wrapper relative">
         <h2 className="text-[12vw] font-kiona tracking-tighter font-extrabold uppercase text-shadow-lg text-shadow-black">
