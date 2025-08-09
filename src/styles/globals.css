@@ -95,7 +95,7 @@ body {
   transition: all .3s ease;
 }
 
-.inputField:-webkit-autofill,
+.inputField:-webkit-autofill, 
 .inputField:-webkit-autofill:focus,
 .inputField:-webkit-autofill:hover,
 .inputField:-webkit-autofill:active {
@@ -105,4 +105,11 @@ body {
   color: #fff !important;
   caret-color: #fff !important;
   transition: background-color 5000s ease-in-out 0s;
+}
+
+
+.inputField::placeholder {
+  color: #ffffff !important;
+  opacity: 1;
+  font-size: 20px;
 }
