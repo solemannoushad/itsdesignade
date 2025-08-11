@@ -57,6 +57,28 @@ function ContactForm() {
 
   useGSAP(
     () => {
+
+      gsap.from(contactFormRef.current, {
+        borderTopLeftRadius: 0,
+        borderTopRightRadius: 0,
+        scrollTrigger: {
+          trigger: contactFormRef.current,
+          start: "top 80%",
+          end: "+=300",
+          scrub: 1.25,
+        },
+      });
+
+      gsap.utils.toArray(".inputField").forEach((el) => {
+        gsap.from(el, {
+          width: "20%",
+          opacity: 0,
+          scrollTrigger: {
+            trigger: el,
+            start: "top 80%",
+          },
+        });
+      });
       // Animate the contact title with SplitText
       if (titleRef.current) {
         const split = SplitText.create(titleRef.current, { type: "chars", mask: "chars" });
@@ -76,26 +98,8 @@ function ContactForm() {
         });
         return () => split.revert();
       }
-      gsap.from(contactFormRef.current, {
-        borderTopLeftRadius: 0,
-        borderTopRightRadius: 0,
-        scrollTrigger: {
-          trigger: contactFormRef.current,
-          start: "top 80%",
-          end: "+=300",
-          scrub: 1.25,
-        },
-      });
-      gsap.utils.toArray(".inputField").forEach((el) => {
-        gsap.from(el, {
-          width: "20%",
-          opacity: 0,
-          scrollTrigger: {
-            trigger: el,
-            start: "top 80%",
-          },
-        });
-      });
+
+
       ScrollTrigger.refresh();
     },
     { scope: contactFormRef }

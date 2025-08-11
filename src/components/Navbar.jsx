@@ -41,7 +41,7 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className='flex absolute w-screen justify-between items-center py-10 px-24 bg-transparent z-50'>
+    <nav id='top' className='flex absolute w-screen justify-between items-center py-10 px-24 bg-transparent z-50'>
       <ul className='flex gap-10'>
         <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="" onClick={e => {
           e.preventDefault();
