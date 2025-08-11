@@ -58,6 +58,16 @@ function ContactForm() {
   useGSAP(
     () => {
 
+
+        gsap.to('#contact' , {
+          scrollTrigger: {
+            trigger: '#contact',
+            start: "bottom bottom",
+            pin: true,
+            pinSpacing: false
+          }
+        })
+
       gsap.from(contactFormRef.current, {
         borderTopLeftRadius: 0,
         borderTopRightRadius: 0,
@@ -166,7 +176,7 @@ function ContactForm() {
     <section
       ref={contactFormRef}
       id="contact"
-      className="w-screen bg-black text-white z-30 py-32 rounded-tl-[250px] rounded-tr-[250px]"
+      className="pins w-screen bg-black text-white py-32 rounded-tl-[250px] rounded-tr-[250px]"
     >
       <h1
         ref={titleRef}
