@@ -62,7 +62,7 @@ function Footer() {
         </div>
       </div>
       <div className='grid grid-cols-3 justify-center text-center items-center'>
-        <div className='flex items-center justify-center'><span className='text-lg'>ThinkLoom | 2025. All rights reserved</span></div>
+        <div className='flex items-center justify-center'><span className='text-lg'>ThinkLoom Solutions | 2025. All rights reserved</span></div>
         <div className='flex items-center justify-center'><span className='text-lg font-kiona'> POWERED BY:</span> &nbsp; <Image src={'/images/plain-logo-black.svg'}  width={100} height={100} alt='designade' className='' />  </div>
       </div>
     </footer>

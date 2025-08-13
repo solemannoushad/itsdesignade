@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import WorkCard from "./WorkCard";
@@ -10,6 +10,8 @@ function Work() {
   const workContentRef = useRef(null);
   const sectionRef = useRef(null);
   const horizontalRef = useRef(null);
+
+  const [animation, setAnimation] = useState(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -35,23 +37,29 @@ function Work() {
     );
 
     // Horizontal scroll for cards+PortfolioTitle while section is pinned
-    const horizontalWidth = horizontalEl.scrollWidth;
+    // Lock width and scroll distance so child width animations won't shift starts/ends
+    const measuredWidth = horizontalEl.scrollWidth;
     const viewportWidth = window.innerWidth;
-    const scrollDistance = horizontalWidth - viewportWidth;
+    const scrollDistance = measuredWidth - viewportWidth;
 
-    gsap.to(horizontalEl, {
-      x: -scrollDistance,
-      ease: "none",
-      scrollTrigger: {
-        trigger: sectionEl,
-        start: "top top",
-        end: () => `+=${scrollDistance}`,
-        scrub: 1.25,
-        pin: true,
-        // anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
-    });
+    // Fix the width so subsequent child layout changes don't alter scrollWidth
+    horizontalEl.style.width = `${measuredWidth}px`;
+
+    setAnimation(
+      gsap.to(horizontalEl, {
+        x: -scrollDistance,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionEl,
+          start: "top top",
+          end: `+=${scrollDistance}`,
+          scrub: 1.25,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: false,
+        },
+      })
+    )
 
     // Cleanup
     return () => {
@@ -95,7 +103,7 @@ function Work() {
             Linkedin
           </a>
         </section>
-        <div className="flex h-screen items-center">
+        <div className="flex h-screen items-end">
           {servicesData.map((service) => (
             <WorkCard
               key={service.title}
@@ -104,6 +112,7 @@ function Work() {
               tools={service.tools}
               title={service.title}
               objectPosition={service.objectFit}
+              animation={animation}
             />
           ))}
         </div>

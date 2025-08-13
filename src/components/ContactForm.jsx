@@ -50,9 +50,9 @@ function InputField({
 function ContactForm() {
   const contactFormRef = useRef(null);
   const titleRef = useRef(null); // Add a ref for the contact-title
-  let split = SplitText.create(".contact-title" , {
-    type: "chars"
-  })
+  // let split = SplitText.create(".contact-title" , {
+  //   type: "chars"
+  // })
   
 
   useGSAP(
@@ -94,7 +94,7 @@ function ContactForm() {
         const split = SplitText.create(titleRef.current, { type: "chars", mask: "chars" });
         gsap.from(split.chars, {
           opacity: 0,
-          yPercent: 100,
+          yPercent: 150,
           autoAlpha: 0,
           duration: 0.4,
           stagger: {
@@ -104,6 +104,7 @@ function ContactForm() {
           scrollTrigger: {
             trigger: titleRef.current,
             start: "top 80%",
+            toggleActions: "restart reset restart reset"
           }
         });
         return () => split.revert();

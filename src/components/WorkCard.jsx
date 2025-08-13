@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const CardTags = ({title}) => {
     return(
@@ -15,14 +16,52 @@ const CardCategory = ({title}) => {
     )
 }
 
-function WorkCard({img, tags, tools, title, objectPosition}) {
+function WorkCard({img, tags, tools, title, objectPosition, animation}) {
 
+    
+    const cardRef = useRef(null);
     const cursorRef = useRef(null);
     const wrapperRef = useRef(null);
+    const imageRef = useRef(null);
     
     useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger)
         const customCursor = cursorRef.current;
         const wrapper = wrapperRef.current;
+        const card = cardRef.current;
+        const image =  imageRef.current;
+        
+
+        // Defer until container animation is ready
+        if (!animation || !card) {
+            return;
+        }
+
+        const tween = gsap.from(card , {
+            height: "2%",
+            scrollTrigger: {
+                containerAnimation: animation,
+                trigger: image,
+                scrub: 0.5,
+                start: 'left 80%',
+                end: 'left 5%',
+                markers: true
+            }
+        })
+
+        const twee1 = gsap.from(card , {
+            width: "300px",
+            scrollTrigger: {
+                containerAnimation: animation,
+                trigger: card,
+                scrub: 0.5,
+                start: 'left 80%',
+                end: 'left 5%',
+                markers: true
+            }
+        })
+        // Ensure ST recalculates positions with the new child trigger
+        ScrollTrigger.refresh()
 
         const handleMouseEnter = (e) => {
             // Get mouse position relative to the wrapper
@@ -73,6 +112,10 @@ function WorkCard({img, tags, tools, title, objectPosition}) {
         }
     
         return () => {
+            // Kill the card's ST when animation changes/unmounts
+            if (tween && tween.scrollTrigger) {
+                tween.scrollTrigger.kill()
+            }
             if (wrapper) {
                 wrapper.removeEventListener("mouseenter", handleMouseEnter);
                 wrapper.removeEventListener("mousemove", handleMouseMove);
@@ -80,16 +123,16 @@ function WorkCard({img, tags, tools, title, objectPosition}) {
             }
         };
 
-    } , [])
+    } , [animation])
 
   return (
-    <div className='flex flex-col w-full md:w-[1000px] min-h-[60vh] md:h-screen flex-shrink-0'>
+    <div ref={cardRef} className='flex flex-col w-[1000px] min-h-[60vh] h-screen flex-shrink-0'>
       <div ref={wrapperRef} className="work-card-wrapper overflow-hidden border-l-1 border-l-slate-200 w-full h-full flex flex-col relative cursor-none">
         <div ref={cursorRef} className="cursor-btn opacity-0 absolute flex items-center justify-center bg-[#131313] text-white px-8 py-3 rounded-full text-2xl uppercase font-kiona font-bold z-40">
             {title}
         </div>
         <div className="work-card-img w-full h-[40vw] md:h-[70%] min-h-[200px] md:min-h-0">
-            <Image src={`/images/${img}`} className={`w-full h-full object-cover ${objectPosition === "top" ? "object-top" : "object-center"}`} width={1400} height={1400} alt={title} />
+            <Image ref={imageRef} src={`/images/${img}`} className={`w-full h-full object-cover ${objectPosition === "top" ? "object-top" : "object-center"}`} width={1400} height={1400} alt={title} />
         </div>
         <div className="work-card-tags flex w-full p-5 items-center justify-between flex-wrap gap-2 md:gap-0">
             <div className="card-tags flex items-center gap-2 md:gap-4 flex-wrap">
