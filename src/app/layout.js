@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import SmoothScrollProvider from "../components/SmoothScrollProvider";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 export const metadata = {
   title: "Top Social Media Agency | Creative Agency in US",
@@ -16,8 +17,9 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>
+      <body __processed_6d89999a-da9a-407f-9773-63ead65af35d__="true">
         <SmoothScrollProvider>
+          <Navbar />
           {children}
           <Footer/>
         </SmoothScrollProvider>

@@ -1,8 +1,11 @@
 'use client'
 import Image from 'next/image'
-import React, { useEffect, useRef } from 'react'
+import React, { use, useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from '@gsap/react'
+
+gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 const CardTags = ({title}) => {
     return(
@@ -24,8 +27,7 @@ function WorkCard({img, tags, tools, title, objectPosition, animation}) {
     const imageRef = useRef(null);
     const contentRef = useRef(null)
     
-    useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger)
+    useGSAP(() => {
         const customCursor = cursorRef.current;
         const wrapper = wrapperRef.current;
         const card = cardRef.current;
@@ -45,8 +47,8 @@ function WorkCard({img, tags, tools, title, objectPosition, animation}) {
                 containerAnimation: animation,
                 trigger: image,
                 scrub: true,
-                start: 'left 80%',
-                end: 'left 5%',
+                start: 'clamp(left 80%)',
+                end: 'clamp(left 5%)',
                 // markers: true
             }
         })
@@ -56,8 +58,8 @@ function WorkCard({img, tags, tools, title, objectPosition, animation}) {
                 containerAnimation: animation,
                 trigger: content,
                 scrub: true,
-                start: 'left 80%',
-                end: 'left 5%',
+                start: 'clamp(left 80%)',
+                end: 'clamp(left 5%)',
                 // markers: true
             }
         })
@@ -68,9 +70,9 @@ function WorkCard({img, tags, tools, title, objectPosition, animation}) {
                 containerAnimation: animation,
                 trigger: card,
                 scrub: 0.5,
-                start: 'left 80%',
-                end: 'left 5%',
-                markers: true
+                start: 'clamp(left 80%)',
+                end: 'clamp(left 5%)',
+                // markers: true
             }
         })
         // Ensure ST recalculates positions with the new child trigger
@@ -163,7 +165,7 @@ function WorkCard({img, tags, tools, title, objectPosition, animation}) {
                 }
             </div>
         </div>
-        <div ref={contentRef} className="work-card-title flex items-center justify-center py-6 md:py-10">
+        <div className="work-card-title flex items-center justify-center py-6 md:py-10">
             <p className={`text-2xl md:text-6xl font-medium font-hero`}>{title}</p>
         </div>
       </div>
