@@ -6,13 +6,16 @@ import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
+import { useGSAP } from '@gsap/react';
+import { scrollToSection } from '../utils/helper';
+
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, useGSAP);
 
 function Navbar() {
   const logoWrapperRef = useRef(null);
   const scrollTweensRef = useRef([]);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+  useGSAP(() => {
     const logo = logoWrapperRef.current;
     if (!logo) return;
 
@@ -36,29 +39,7 @@ function Navbar() {
     logo.addEventListener('mousemove', handleMouseMove);
     logo.addEventListener('mouseleave', resetPosition);
 
-    return () => {
-      logo.removeEventListener('mousemove', handleMouseMove);
-      logo.removeEventListener('mouseleave', resetPosition);
-    };
-  }, []);
-
-  const scrollToSection = (targetId, e) => {
-    e.preventDefault();
-    
-    // Kill any existing scroll tweens to prevent conflicts
-    scrollTweensRef.current.forEach(tween => {
-      if (tween) tween.kill();
-    });
-    scrollTweensRef.current = [];
-    
-    const newTween = gsap.to(window, {
-      scrollTo: { y: targetId, offsetY: 0 },
-      duration: 1,
-      ease: 'power2.out'
-    });
-    
-    scrollTweensRef.current.push(newTween);
-  };
+  });
 
   // Cleanup on unmount
   useEffect(() => {
@@ -72,7 +53,7 @@ function Navbar() {
   return (
     <nav id='top' className='flex absolute w-screen justify-between items-center py-10 px-24 bg-transparent z-50'>
       <ul className='flex gap-10'>
-        <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="" onClick={(e) => scrollToSection('#services', e)}>Services</a></li>
+        <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="" onClick={(e) => scrollToSection('#services', e, scrollTweensRef)}>Services</a></li>
         <li><Link className='nav-a text-xl font-medium text-[#c2c2c2]' href="/portfolio" >Portfolio</Link></li>
       </ul>
 
@@ -82,7 +63,7 @@ function Navbar() {
 
       <ul className='flex gap-10'>
         <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="/">Blog</a></li>
-        <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="" onClick={(e) => scrollToSection('#contact', e)}>Contact Us</a></li>
+        <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="" onClick={(e) => scrollToSection('#contact', e, scrollTweensRef)}>Contact Us</a></li>
       </ul>
     </nav>
   );
