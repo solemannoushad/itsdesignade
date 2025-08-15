@@ -87,7 +87,7 @@ function ServiceSteps() {
   }, []);
 
   return (
-    <section className="w-full bg-white text-black pl-36 overflow-hidden py-36">
+    <section id="services" className="w-full bg-white text-black pl-36 overflow-hidden py-36">
       {servicesSteps.map((service, index) => {
         const { title, img } = service;
         return (
