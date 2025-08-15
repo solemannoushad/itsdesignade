@@ -4,12 +4,24 @@ import BtnPrimary from "./BtnPrimary";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-function PortfolioTitle() {
+function PortfolioTitle({animation}) {
   const sectionRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const section = sectionRef.current;
+
+    // gsap.to(section, {
+    //   scrollTrigger: {
+    //     containerAnimation: animation,
+    //     trigger: section,
+    //     start: "left left",
+    //     end: "+=300",
+    //     pin: true,
+    //     pinSpacing: false,
+    //     markers: true
+    //   }
+    // })
 
     // Mousemove effect for pills
     const handleMouseMove = (e) => {
@@ -37,21 +49,7 @@ function PortfolioTitle() {
     };
 
     // Fix: Use horizontal scrollTrigger for horizontal reveal/pin
-    // gsap.to(section, {
-    //   scrollTrigger: {
-    //     trigger: section,
-    //     horizontal: true,
-    //     pin: true,
-    //     scrub: 1,
-    //     start: "left center",
-    //     end: "+=300",
-    //     markers: true,
-    //     anticipatePin: 1,
-    //     invalidateOnRefresh: true,
-    //     pin: true,
-    //     pinSpacing: false,
-    //   }
-    // });
+
   }, []);
 
   return (

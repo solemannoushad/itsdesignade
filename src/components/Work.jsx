@@ -57,6 +57,7 @@ function Work() {
           pin: true,
           anticipatePin: 1,
           invalidateOnRefresh: false,
+          // pinSpacing: false
         },
       })
     )
@@ -116,7 +117,7 @@ function Work() {
             />
           ))}
         </div>
-          <PortfolioTitle />
+          <PortfolioTitle animation={animation} />
       </div>
     </section>
   );

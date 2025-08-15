@@ -18,11 +18,11 @@ const CardCategory = ({title}) => {
 
 function WorkCard({img, tags, tools, title, objectPosition, animation}) {
 
-    
     const cardRef = useRef(null);
     const cursorRef = useRef(null);
     const wrapperRef = useRef(null);
     const imageRef = useRef(null);
+    const contentRef = useRef(null)
     
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger)
@@ -30,6 +30,7 @@ function WorkCard({img, tags, tools, title, objectPosition, animation}) {
         const wrapper = wrapperRef.current;
         const card = cardRef.current;
         const image =  imageRef.current;
+        const content = contentRef.current;
         
 
         // Defer until container animation is ready
@@ -42,24 +43,35 @@ function WorkCard({img, tags, tools, title, objectPosition, animation}) {
             scrollTrigger: {
                 containerAnimation: animation,
                 trigger: image,
-                scrub: 0.5,
+                scrub: true,
                 start: 'left 80%',
                 end: 'left 5%',
-                markers: true
+                // markers: true
+            }
+        })
+        const tween2 = gsap.from(content , {
+           opacity: 0,
+            scrollTrigger: {
+                containerAnimation: animation,
+                trigger: content,
+                scrub: true,
+                start: 'left 80%',
+                end: 'left 5%',
+                // markers: true
             }
         })
 
-        const twee1 = gsap.from(card , {
-            width: "300px",
-            scrollTrigger: {
-                containerAnimation: animation,
-                trigger: card,
-                scrub: 0.5,
-                start: 'left 80%',
-                end: 'left 5%',
-                markers: true
-            }
-        })
+        // const twee1 = gsap.from(card , {
+        //     width: "300px",
+        //     scrollTrigger: {
+        //         containerAnimation: animation,
+        //         trigger: card,
+        //         scrub: 0.5,
+        //         start: 'left 80%',
+        //         end: 'left 5%',
+        //         markers: true
+        //     }
+        // })
         // Ensure ST recalculates positions with the new child trigger
         ScrollTrigger.refresh()
 
@@ -126,15 +138,15 @@ function WorkCard({img, tags, tools, title, objectPosition, animation}) {
     } , [animation])
 
   return (
-    <div ref={cardRef} className='flex flex-col w-[1000px] min-h-[60vh] h-screen flex-shrink-0'>
+    <div ref={cardRef} className='flex flex-col w-[55vw] min-h-[60vh] h-screen flex-shrink-0'>
       <div ref={wrapperRef} className="work-card-wrapper overflow-hidden border-l-1 border-l-slate-200 w-full h-full flex flex-col relative cursor-none">
         <div ref={cursorRef} className="cursor-btn opacity-0 absolute flex items-center justify-center bg-[#131313] text-white px-8 py-3 rounded-full text-2xl uppercase font-kiona font-bold z-40">
             {title}
         </div>
-        <div className="work-card-img w-full h-[40vw] md:h-[70%] min-h-[200px] md:min-h-0">
-            <Image ref={imageRef} src={`/images/${img}`} className={`w-full h-full object-cover ${objectPosition === "top" ? "object-top" : "object-center"}`} width={1400} height={1400} alt={title} />
+        <div ref={imageRef} className="work-card-img w-full h-[40vw] md:h-[70%] min-h-[200px] md:min-h-0">
+            <Image  src={`/images/${img}`} className={`w-full h-full object-cover ${objectPosition === "top" ? "object-top" : "object-center"}`} width={1400} height={1400} alt={title} />
         </div>
-        <div className="work-card-tags flex w-full p-5 items-center justify-between flex-wrap gap-2 md:gap-0">
+        <div ref={contentRef} className="work-card-tags flex w-full p-5 items-center justify-between flex-wrap gap-2 md:gap-0">
             <div className="card-tags flex items-center gap-2 md:gap-4 flex-wrap">
                 {
                     tags.map((tag, index) => {
@@ -150,7 +162,7 @@ function WorkCard({img, tags, tools, title, objectPosition, animation}) {
                 }
             </div>
         </div>
-        <div className="work-card-title flex items-center justify-center py-6 md:py-10">
+        <div ref={contentRef} className="work-card-title flex items-center justify-center py-6 md:py-10">
             <p className={`text-2xl md:text-6xl font-medium font-hero`}>{title}</p>
         </div>
       </div>
