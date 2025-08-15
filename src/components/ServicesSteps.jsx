@@ -1,8 +1,11 @@
 'use client'
 import { servicesSteps } from "@/content/services";
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
+import React, { use, useEffect, useRef } from "react";
+
+gsap.registerPlugin(useGSAP)
 
 
 function ServiceSteps() {
@@ -10,7 +13,7 @@ function ServiceSteps() {
   const imageRefs = useRef([]);
   const blockRefs = useRef([]);
 
-  useEffect(() => {
+  useGSAP(() => {
     const wrappers = blockRefs.current;
     const images = imageRefs.current;
 
@@ -75,16 +78,7 @@ function ServiceSteps() {
       }
     });
 
-    return () => {
-      wrappers.forEach((wrapper) => {
-        if (wrapper && wrapper._enter && wrapper._move && wrapper._leave) {
-          wrapper.removeEventListener("mouseenter", wrapper._enter);
-          wrapper.removeEventListener("mousemove", wrapper._move);
-          wrapper.removeEventListener("mouseleave", wrapper._leave);
-        }
-      });
-    };
-  }, []);
+  });
 
   return (
     <section id="services" className="w-full bg-white text-black pl-36 overflow-hidden py-36">
