@@ -40,6 +40,7 @@ function WorkCard({img, tags, tools, title, objectPosition, animation}) {
 
         const tween = gsap.from(card , {
             height: "2%",
+            transformOrigin: "bottom right",
             scrollTrigger: {
                 containerAnimation: animation,
                 trigger: image,
@@ -61,17 +62,17 @@ function WorkCard({img, tags, tools, title, objectPosition, animation}) {
             }
         })
 
-        // const twee1 = gsap.from(card , {
-        //     width: "300px",
-        //     scrollTrigger: {
-        //         containerAnimation: animation,
-        //         trigger: card,
-        //         scrub: 0.5,
-        //         start: 'left 80%',
-        //         end: 'left 5%',
-        //         markers: true
-        //     }
-        // })
+        const twee1 = gsap.from(card , {
+            width: "40vw",
+            scrollTrigger: {
+                containerAnimation: animation,
+                trigger: card,
+                scrub: 0.5,
+                start: 'left 80%',
+                end: 'left 5%',
+                markers: true
+            }
+        })
         // Ensure ST recalculates positions with the new child trigger
         ScrollTrigger.refresh()
 
