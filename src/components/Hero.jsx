@@ -3,12 +3,14 @@ import Image from 'next/image'
 import React, { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from '@gsap/react'
+
+gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 function Hero() {
   const heroImgRef = useRef(null)
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
+  useGSAP(() => {
     const img = heroImgRef.current
     const dest = document.getElementById('services-title')
     if (!img || !dest) return

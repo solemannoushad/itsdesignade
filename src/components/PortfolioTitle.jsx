@@ -3,12 +3,14 @@ import React, { useEffect, useRef } from "react";
 import BtnPrimary from "./BtnPrimary";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 function PortfolioTitle({animation}) {
   const sectionRef = useRef(null);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+  useGSAP(() => {
     const section = sectionRef.current;
 
     // gsap.to(section, {
@@ -44,13 +46,9 @@ function PortfolioTitle({animation}) {
       });
     };
     section.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      section.removeEventListener("mousemove", handleMouseMove);
-    };
 
-    // Fix: Use horizontal scrollTrigger for horizontal reveal/pin
 
-  }, []);
+  });
 
   return (
     <section

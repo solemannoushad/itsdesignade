@@ -5,6 +5,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import WorkCard from "./WorkCard";
 import PortfolioTitle from "./PortfolioTitle";
 import { servicesData } from "@/content/services";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 function Work() {
   const workContentRef = useRef(null);
@@ -13,8 +16,7 @@ function Work() {
 
   const [animation, setAnimation] = useState(null);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+  useGSAP(() => {
     const el = workContentRef.current;
     const sectionEl = sectionRef.current;
     const horizontalEl = horizontalRef.current;
@@ -62,11 +64,7 @@ function Work() {
       })
     )
 
-    // Cleanup
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
+  });
 
   return (
     <section id="services" ref={sectionRef} className="w-full h-screen overflow-x-hidden relative border-none bg-background">
