@@ -1,10 +1,15 @@
+import Footer from '@/components/Footer'
+import PortfolioHero from '@/components/PortfolioHero'
+import PortfolioSection from '@/components/PortfolioSection'
 import React from 'react'
 
 function page() {
   return (
-    <div>
-      
-    </div>
+    <>
+      <PortfolioHero />
+      <PortfolioSection />
+      <Footer />
+    </>
   )
 }
 

@@ -50,7 +50,7 @@ function Footer() {
           <ul className='flex flex-col gap-2'>
             <li><a href="" className='text-xl font-kiona'>Services</a></li>
             <li><a href="" className='text-xl font-kiona'>Portfolio</a></li>
-            <li><a href="" className='text-xl font-kiona'>Blogs</a></li>
+            {/* <li><a href="" className='text-xl font-kiona'>Blogs</a></li> */}
           </ul>
         </div>
         <div className='footer-links flex flex-col gap-4'>

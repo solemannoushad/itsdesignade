@@ -17,11 +17,10 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body __processed_6d89999a-da9a-407f-9773-63ead65af35d__="true">
+      <body>
         <SmoothScrollProvider>
           <Navbar />
           {children}
-          <Footer/>
         </SmoothScrollProvider>
       </body>
     </html>

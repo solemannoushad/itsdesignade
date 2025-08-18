@@ -1,6 +1,7 @@
 'use client';
 
 import ContactForm from "@/components/ContactForm";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import ServiceSteps from "@/components/ServicesSteps";
 import Work from "@/components/Work";
@@ -23,6 +24,7 @@ export default function Home() {
     <Work />
     <ServiceSteps />
     <ContactForm />
+    <Footer />
     </>
   );
 }
