@@ -40,7 +40,7 @@ function PortfolioHero() {
   }, []);
 
   return (
-    <div className="bg-black pt-64 pb-20">
+    <div className="bg-black pt-52 pb-0">
       <div className="text-[10vw] flex gap-0">
         <h1 className="font-medium ml-28">
           Do Epic

@@ -1,3 +1,4 @@
+import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
 import PortfolioHero from '@/components/PortfolioHero'
 import PortfolioSection from '@/components/PortfolioSection'
