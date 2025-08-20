@@ -27,9 +27,9 @@ function PortfolioHero() {
       });
     });
 
-    const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.4 });
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.3 });
     for (let i = 0; i < 4; i++) {
-      const position = i === 0 ? ">" : "+=1";
+      const position = i === "+=0.5" ? ">" : "+=0.8";
       tl.to(".animated-spans h1", {
         yPercent: "-=100",
         duration: 0.5,

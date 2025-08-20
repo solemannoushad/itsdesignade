@@ -6,6 +6,7 @@ import BackToTop from './BackToTop'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Link from 'next/link'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -56,8 +57,8 @@ function Footer() {
         <div className='footer-links flex flex-col gap-4'>
           <h4 className='text-4xl font-bold'>Policies</h4>
           <ul className='flex flex-col gap-2'>
-            <li><a href="" className='text-xl font-kiona'>Terms & Condition</a></li>
-            <li><a href="" className='text-xl font-kiona'>Privacy Policy</a></li>
+            <li><Link href="/terms-and-conditions" className='text-xl font-kiona'>Terms & Condition</Link></li>
+            <li><Link href="/privacy-policy" className='text-xl font-kiona'>Privacy Policy</Link></li>
           </ul>
         </div>
       </div>
