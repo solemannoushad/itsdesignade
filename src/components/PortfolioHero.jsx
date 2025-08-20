@@ -4,14 +4,14 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 function PortfolioHero() {
-  const initialPosition = `M 10 100 Q 450 100 890 100`;
+  const initialPosition = `M 10 60 Q 450 60 890 60`;
 
   useGSAP(() => {
     let svg = document.querySelector("svg");
     let pathEl = document.querySelector("svg path");
 
     svg.addEventListener("mousemove", function (dets) {
-      let path = `M 10 100 Q ${dets.offsetX} ${dets.offsetY} 890 100`;
+      let path = `M 10 60 Q ${dets.offsetX} ${dets.offsetY} 890 60`;
       console.log(path);
       gsap.to(pathEl, {
         attr: { d: path },
@@ -55,12 +55,12 @@ function PortfolioHero() {
       </div>
       <div className="w-[90%] mx-auto">
         <svg
-          viewBox="0 0 900 200"
+          viewBox="0 0 900 120"
           className="w-full h-auto"
           preserveAspectRatio="xMidYMid meet"
         >
           <path
-            d="M 10 100 Q 450 100 890 100"
+            d="M 10 60 Q 450 60 890 60"
             stroke="white"
             fill="transparent"
             strokeWidth="1"
