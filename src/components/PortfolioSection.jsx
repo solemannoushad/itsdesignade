@@ -61,7 +61,7 @@ function PortfolioSection() {
       trigger: portfolioRef.current,
       start: "bottom bottom",
       pin: true,
-      markers: true,
+      // markers: true,
       pinSpacing: false,
       invalidateOnRefresh: true
     });
