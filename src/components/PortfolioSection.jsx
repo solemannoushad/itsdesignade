@@ -109,7 +109,7 @@ function PortfolioSection() {
           </label>
         ))}
       </div>
-      <div ref={portfolioRef} className="portfolio-data flex flex-wrap content-start gap-10 justify-center pb-20">
+      <div ref={portfolioRef} className="portfolio-data flex flex-wrap content-start gap-10 justify-center pt-10 pb-20">
         {
           images.map((image, index) => {
             return(

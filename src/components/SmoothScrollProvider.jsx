@@ -32,7 +32,7 @@ export default function SmoothScrollProvider({ children }) {
   }, [])
 
   return (
-    <div id="smooth-wrapper" className='bg-black'>
+    <div id="smooth-wrapper" className=''>
       <div id="smooth-content">
         {children}
       </div>
