@@ -57,8 +57,8 @@ function Footer() {
         <div className='footer-links flex flex-col gap-4'>
           <h4 className='text-4xl font-bold'>Policies</h4>
           <ul className='flex flex-col gap-2'>
-            <li><Link href="/terms-and-conditions" className='text-xl font-kiona'>Terms & Conditions</Link></li>
-            <li><Link href="/privacy-policy" className='text-xl font-kiona'>Privacy Policy</Link></li>
+            <li><a href="/terms-and-conditions" className='text-xl font-kiona'>Terms & Conditions</a></li>
+            <li><a href="/privacy-policy" className='text-xl font-kiona'>Privacy Policy</a></li>
           </ul>
         </div>
       </div>
