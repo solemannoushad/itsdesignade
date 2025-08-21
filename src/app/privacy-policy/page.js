@@ -1,3 +1,5 @@
+import Footer from '@/components/Footer'
+import TextBgAnimation from '@/components/TextBgAnimation'
 import React from 'react'
 
 export const metadata = {
@@ -7,10 +9,10 @@ export const metadata = {
 
 function page() {
   return (
-    <main className="min-h-screen bg-white text-black pt-40 pb-24">
+    <>
+      <main className="before-footer bg-black text-white pt-64 pb-24">
       <div className="w-[90%] md:w-[70%] mx-auto space-y-8">
-        <h1 className="text-5xl font-bold">Privacy Policy</h1>
-        <p className="text-gray-700">Last updated: August 20, 2025</p>
+      <TextBgAnimation bgColor="#ffc519" className="text-6xl font-bold text-black" text={"Privacy Policy"} />
 
         <p>
           This Privacy Policy explains how ThinkLoom ("we", "us", "our") collects, uses, discloses, and safeguards
@@ -122,6 +124,8 @@ function page() {
         </section>
       </div>
     </main>
+    <Footer />
+    </>
   )
 }
 

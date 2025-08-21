@@ -21,7 +21,8 @@ export default function Home() {
           trigger: el,
           start: "bottom bottom",
           pin: true,
-          pinSpacing: false
+          pinSpacing: false,
+          markers: false
         }
       });
     });
