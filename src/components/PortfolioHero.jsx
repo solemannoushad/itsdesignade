@@ -2,6 +2,7 @@
 import React from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import String from "./String";
 
 function PortfolioHero() {
   const initialPosition = `M 10 60 Q 450 60 890 60`;
@@ -53,20 +54,7 @@ function PortfolioHero() {
           <h1 className="absolute" style={{ transform: "translateY(400%)" }}><span>&nbsp; design</span></h1>
         </div>
       </div>
-      <div className="w-[90%] mx-auto">
-        <svg
-          viewBox="0 0 900 120"
-          className="w-full h-auto"
-          preserveAspectRatio="xMidYMid meet"
-        >
-          <path
-            d="M 10 60 Q 450 60 890 60"
-            stroke="white"
-            fill="transparent"
-            strokeWidth="1"
-          />
-        </svg>
-      </div>
+      <String width={90} />
     </div>
   );
 }
