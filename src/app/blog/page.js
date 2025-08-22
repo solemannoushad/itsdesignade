@@ -1,3 +1,4 @@
+import BlogsSection from '@/components/BlogsSection'
 import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
 import PortfolioHero from '@/components/PortfolioHero'
@@ -7,8 +8,8 @@ import React from 'react'
 function page() {
   return (
     <div className='bg-black'>
-      <PortfolioHero />
-      <PortfolioSection />
+      <PortfolioHero title='Our' text={["blogs", "insights", "news", "blogs"]} />
+      <BlogsSection />
       <Footer />
     </div>
   )

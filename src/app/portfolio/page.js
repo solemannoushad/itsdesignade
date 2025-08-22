@@ -7,7 +7,7 @@ import React from 'react'
 function page() {
   return (
     <div className='bg-black'>
-      <PortfolioHero />
+      <PortfolioHero title='Do Epic' text={["design", "dev", "creative", "social", "design"]} />
       <PortfolioSection />
       <Footer />
     </div>
