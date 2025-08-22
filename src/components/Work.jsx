@@ -6,6 +6,7 @@ import WorkCard from "./WorkCard";
 import PortfolioTitle from "./PortfolioTitle";
 import { servicesData } from "@/content/services";
 import { useGSAP } from "@gsap/react";
+import { socialMediaLinks } from "@/content/contactInfo";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -83,10 +84,10 @@ function Work() {
             <h1 id="services-title" className=" text-8xl font-bold uppercase font-kiona text-center">the services</h1>
             <h2 className=" text-3xl text-center">everyone needs</h2>
           </div>
-          <a className="text-xl font-medium absolute top-[3%] left-[3%]" href="https://www.instagram.com/thinkloomsolutions/" target="_blank">
+          <a className="text-xl font-medium absolute top-[3%] left-[3%]" href={socialMediaLinks.instagram} target="_blank">
             Instagram
           </a>
-          <a className="text-xl font-medium absolute top-[3%] right-[3%]" href="">
+          <a className="text-xl font-medium absolute top-[3%] right-[3%]" href={socialMediaLinks.facebook} target="_blank">
             Facebook
           </a>
           <a
@@ -97,7 +98,8 @@ function Work() {
           </a>
           <a
             className="text-xl font-medium absolute bottom-[3%] right-[3%]"
-            href=""
+            href={socialMediaLinks.linkedin}
+            target="_blank"
           >
             Linkedin
           </a>
