@@ -20,7 +20,7 @@ export const scrollToSection = (targetId, e, scrollTweensRef) => {
   const newTween = gsap.to(window, {
     scrollTo: { y: targetId, offsetY: 0 },
     duration: 1,
-    ease: 'power2.out'
+   ease: "circ.inOut"
   });
   
   if (scrollTweensRef && scrollTweensRef.current) {

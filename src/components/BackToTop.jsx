@@ -15,7 +15,7 @@ function BackToTop() {
     tweenRef.current = gsap.to(window, {
       scrollTo: { y: '#top', offsetY: 0 },
       duration: 1,
-      ease: 'power2.out'
+      ease: "circ.inOut"
     });
   }
 
