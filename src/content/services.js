@@ -31,7 +31,7 @@ export const servicesData = [
   {
     title: "Web Development",
     image: "web-development.jpg",
-    tags: ["Web Design", "Custom Websites"],
+    tags: ["Web Design", "MVP"],
     tools: ["WordPress", "React", "Next.js"],
     objectFit: "top",
   },

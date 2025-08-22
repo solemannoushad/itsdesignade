@@ -62,7 +62,7 @@ function Navbar() {
       </Link>
 
       <ul className='flex gap-10'>
-        <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="/">Blog</a></li>
+        <li><Link className='nav-a text-xl font-medium text-[#c2c2c2]' href="/blog">Blog</Link></li>
         <li><a className='nav-a text-xl font-medium text-[#c2c2c2]' href="" onClick={(e) => scrollToSection('#contact', e, scrollTweensRef)}>Contact Us</a></li>
       </ul>
     </nav>
