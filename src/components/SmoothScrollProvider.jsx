@@ -3,12 +3,14 @@ import React, { useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { usePathname } from 'next/navigation'
 
 export default function SmoothScrollProvider({ children }) {
+  const pathname = usePathname();
+
   useEffect(() => {
     gsap.registerPlugin(ScrollSmoother, ScrollTrigger)
-    
-    // Only create ScrollSmoother if it doesn't exist
+
     if (!window.ScrollSmootherInstance) {
       window.ScrollSmootherInstance = ScrollSmoother.create({
         wrapper: '#smooth-wrapper',
@@ -16,26 +18,27 @@ export default function SmoothScrollProvider({ children }) {
         smooth: 1.2,
         effects: true,
         smoothTouch: 0.1,
-        // Add ScrollTrigger compatibility
         ignoreMobileResize: true,
         normalizeScroll: true
       })
     }
 
-    // Return cleanup function
+    // ✅ Scroll to top when route changes
+    if (window.ScrollSmootherInstance) {
+      window.ScrollSmootherInstance.scrollTo(0, true) 
+    }
+
     return () => {
       if (window.ScrollSmootherInstance) {
         window.ScrollSmootherInstance.kill();
         window.ScrollSmootherInstance = null;
       }
     };
-  }, [])
+  }, [pathname]) // re-run on route change
 
   return (
-    <div id="smooth-wrapper" className=''>
-      <div id="smooth-content">
-        {children}
-      </div>
+    <div id="smooth-wrapper">
+      <div id="smooth-content">{children}</div>
     </div>
   )
-} 
+}
