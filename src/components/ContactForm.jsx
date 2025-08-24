@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import BtnPrimary from "./BtnPrimary";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
+import emailjs from "@emailjs/browser";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP, SplitText);
 
@@ -49,24 +50,10 @@ function InputField({
 
 function ContactForm() {
   const contactFormRef = useRef(null);
-  const titleRef = useRef(null); // Add a ref for the contact-title
-  // let split = SplitText.create(".contact-title" , {
-  //   type: "chars"
-  // })
+  const titleRef = useRef(null); 
   
-
   useGSAP(
     () => {
-
-
-        // gsap.to('#contact' , {
-        //   scrollTrigger: {
-        //     trigger: '#contact',
-        //     start: "bottom bottom",
-        //     pin: true,
-        //     pinSpacing: false
-        //   }
-        // })
 
       gsap.from(contactFormRef.current, {
         borderTopLeftRadius: 0,
@@ -173,9 +160,42 @@ function ContactForm() {
     },
   ];
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // setDisabled(true);
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
+
+    emailjs.sendForm(serviceId, templateId, contactFormRef.current, userId).then(
+      () => {
+        // setMessage("Thanks for reaching out! We’ll contact you shortly.");
+        // setIsVisible(true);
+        setCreds({
+          services: [],
+          name: "",
+          email: "",
+          companyName: "",
+          designation: "",
+          phone: "",
+          description: "",
+        })
+        // setDisabled(false);
+      },
+      (error) => {
+        // setMessage("Network error. Please try again later.")
+        // setIsVisible(true);
+        // setDisabled(false);
+        console.error("FAILED...", error);
+      }
+    );
+  };
+
   return (
-    <section
+    <form
       ref={contactFormRef}
+      onSubmit={handleSubmit}
       id="contact"
       className="before-footer pins w-screen bg-black text-white py-32 rounded-tl-[250px] rounded-tr-[250px]"
     >
@@ -201,10 +221,11 @@ function ContactForm() {
                 >
                   <input
                     type="checkbox"
-                    name={slug}
+                    name={"services"}
                     id={slug}
                     className="hidden"
                     checked={isSelected}
+                    value={title}
                     onChange={() => handleServiceToggle(title)}
                   />
                   <span className="text-2xl">{title}</span>
@@ -212,7 +233,7 @@ function ContactForm() {
               );
             })}
           </div>
-        <form
+        <div
           className="flex flex-col gap-6 py-3 w-[60%]"
         >
 
@@ -267,9 +288,9 @@ function ContactForm() {
           <div className="mt-10">
             <BtnPrimary title={"Send"} />
           </div>
-        </form>
+        </div>
       </div>
-    </section>
+    </form>
   );
 }
 
